@@ -506,8 +506,10 @@ h1, h2, h3, h4, .font-heading {
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    max-width: 860px;
+    margin: 0 auto;
 }
 
 .stat-card {
@@ -978,7 +980,7 @@ h1, h2, h3, h4, .font-heading {
     }
 
     .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 0.75rem;
     }
 
@@ -987,13 +989,15 @@ h1, h2, h3, h4, .font-heading {
     }
 }
 
+@media (max-width: 640px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 @media (max-width: 480px) {
     .title {
         font-size: 2.6rem;
-    }
-
-    .stats-grid {
-        grid-template-columns: 1fr;
     }
 
     .links-grid {

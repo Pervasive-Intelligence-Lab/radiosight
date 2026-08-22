@@ -16,14 +16,31 @@
 <body>
     <header class="hero">
         <div class="container">
+            <a href="https://www.sigmobile.org/mobicom/2026/" target="_blank" rel="noopener" class="conference-badge fade-in">
+                <span>ACM MobiCom 2026</span>
+                <span class="badge-status">Accepted</span>
+            </a>
             <h1 class="title fade-in">RadioSight</h1>
             <p class="subtitle fade-in">Predictive mmWave XR Network Optimization from<br>Dynamic Neural Radio Fields
             </p>
             <div class="authors fade-in">
-                <span>Lihao Zhang, Paul Kudyba, Zhenlin An, Haijian Sun</span>
+                <span class="author">Lihao Zhang</span>,
+                <span class="author">Paul Kudyba</span>,
+                <span class="author"><a href="https://anplus.github.io/" target="_blank" rel="noopener">Zhenlin An</a></span>,
+                <span class="author"><a href="https://sunlab.uga.edu/" target="_blank" rel="noopener">Haijian Sun</a></span>
+            </div>
+            <div class="affiliation fade-in">
+                <span>University of Georgia</span>
             </div>
             <div class="links fade-in">
-                <a href="https://www.sigmobile.org/mobicom/2026/" target="_blank" rel="noopener" class="btn btn-primary">ACM MobiCom 2026</a>
+                <a href="#abstract" class="btn btn-primary">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    Paper (arXiv soon)
+                </a>
+                <a href="https://github.com/Pervasive-Intelligence-Lab/radiosight" target="_blank" rel="noopener" class="btn btn-secondary">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    Code &amp; Dataset
+                </a>
                 <a href="#video-demos" class="btn btn-secondary">Video Demos</a>
                 <a href="#bibtex" class="btn btn-outline">BibTeX</a>
             </div>
@@ -42,7 +59,7 @@
             </div>
         </section>
 
-        <section class="section abstract-section">
+        <section id="abstract" class="section abstract-section">
             <div class="container">
                 <h2 class="section-title fade-in">Abstract</h2>
                 <div class="abstract-card fade-in">
@@ -64,6 +81,29 @@
                         improves median throughput by 2x, and enhances link stability. Our results offer the first
                         demonstration that radio field representations can directly enable predictive, end-to-end mmWave
                         network optimization.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="dataset-code" class="section dataset-section">
+            <div class="container">
+                <h2 class="section-title fade-in">Dataset &amp; Code Release</h2>
+                <div class="release-card fade-in">
+                    <div class="release-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                    </div>
+                    <div class="release-content">
+                        <h3>Multi-Modal Neural Ray Tracing Dataset &amp; Codebase</h3>
+                        <p>
+                            We will release the complete <strong>multi-modal neural ray tracing dataset</strong> alongside our full source code and evaluation benchmarks. All dataset artifacts, neural radio field training scripts, and real-time optimization models will be accessible via our GitHub repository.
+                        </p>
+                        <div class="release-actions">
+                            <a href="https://github.com/Pervasive-Intelligence-Lab/radiosight" target="_blank" rel="noopener" class="btn btn-primary">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                                GitHub Repository
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

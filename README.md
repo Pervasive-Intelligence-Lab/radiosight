@@ -19,6 +19,8 @@
 
 RadioSight is a real-time, multimodal neural radio field system for predictive mmWave XR network optimization. It continuously models the dynamic wireless environment using vision, motion, and RF observations, and proactively anticipates future blockage and beam changes before link failures occur. By combining scene-aware geometry with lightweight radio-field synchronization, RadioSight identifies alternative non-line-of-sight reflection paths, predicts beam transitions, and schedules proactive beam updates for resilient mmWave connectivity in mobile XR scenarios.
 
+![RadioSight Teaser](teaser.png)
+
 ## Project Description
 
 RadioSight studies a practical problem in mobile XR networking: mmWave links are highly directional and can fail quickly when the user moves, rotates, or is temporarily blocked by objects in the environment. Instead of reacting only after the connection breaks, RadioSight builds a dynamic radio model of the scene and predicts how the wireless channel will change over time.

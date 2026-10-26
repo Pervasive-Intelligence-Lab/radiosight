@@ -1,0 +1,12 @@
+# The recorded `gaming` activity (standing, quick head turns), replayed in this room, while someone walks by.
+twin: twins/nlos_tx1
+dt: 0.1
+duration: 45
+width: 480
+ues:
+  - name: ue0
+    agent: {type: replay, file: twins/motions/gaming.csv, retarget: true}
+pedestrians:
+  - name: p0
+    agent: {type: waypoints, points: [ue_area, bs1, tripod], speed: 1.2, pause: 1.0}
+record: {rgb: true, rf: true, depth: false, video: true}

@@ -1,0 +1,13 @@
+# A headset standing still, facing the base station; a person keeps crossing its line of sight.
+twin: twins/nlos_tx1
+dt: 0.1
+duration: 40
+width: 480
+ues:
+  - name: ue0
+    agent: {type: static, position: [-0.515, 0.482], look_at: bs1}
+pedestrians:
+  - name: p0
+    avatar: remy
+    agent: {type: waypoints, points: [[-0.76, 2.02], [-2.05, 0.23]], speed: 0.9, pause: 0.8, standoff: 0}
+record: {rgb: true, rf: true, depth: false, video: true}

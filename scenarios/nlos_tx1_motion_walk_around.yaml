@@ -1,0 +1,9 @@
+# The recorded `walking_1` activity, replayed in this room. No other people.
+twin: twins/nlos_tx1
+dt: 0.1
+duration: 45
+width: 480
+ues:
+  - name: ue0
+    agent: {type: replay, file: twins/motions/walking_1.csv, retarget: true}
+record: {rgb: true, rf: true, depth: false, video: true}

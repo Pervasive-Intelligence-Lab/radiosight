@@ -1,0 +1,12 @@
+# The measurement walk, plus one person walking between the headset, the base station and the tripod.
+twin: twins/nlos_tx1
+dt: 0.1
+duration: 60
+width: 480
+ues:
+  - name: ue0
+    agent: {type: replay, trajectory: recorded_walk, start: 30}
+pedestrians:
+  - name: p0
+    agent: {type: waypoints, points: [ue_area, bs1, tripod], speed: 1.2, pause: 1.0}
+record: {rgb: true, rf: true, depth: false, video: true}

@@ -1,0 +1,18 @@
+# Two XR users and a pedestrian. Each headset sees the other people
+# (observations.csv), and every person can block the others' signals.
+twin: twins/nlos_tx1
+dt: 0.1
+duration: 60
+width: 480
+ues:
+  - name: ue0
+    body: remy
+    agent: {type: replay, trajectory: recorded_walk, start: 30}
+  - name: ue1
+    body: kate
+    agent: {type: replay, file: twins/motions/walking_1.csv, retarget: true}
+pedestrians:
+  - name: p0
+    avatar: martha
+    agent: {type: waypoints, points: [ue_area, bs1, tripod], speed: 1.2, pause: 1.0}
+record: {rgb: true, rf: true, depth: false, video: true}

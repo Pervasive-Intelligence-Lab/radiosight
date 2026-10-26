@@ -1,0 +1,9 @@
+# The headset replays the measurement walk. No other people.
+twin: twins/nlos_tx1
+dt: 0.1
+duration: 60
+width: 480
+ues:
+  - name: ue0
+    agent: {type: replay, trajectory: recorded_walk, start: 30}
+record: {rgb: true, rf: true, depth: false, video: true}

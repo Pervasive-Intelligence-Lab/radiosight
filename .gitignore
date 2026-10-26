@@ -1,0 +1,7 @@
+__pycache__/
+*.egg-info/
+twins/
+runs/
+data_generated/
+*.part
+view.png

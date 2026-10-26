@@ -1,0 +1,20 @@
+{
+ "base_url": "https://github.com/Pervasive-Intelligence-Lab/radiosight/releases/download/data-v1",
+ "assets": {
+  "nlos_tx1": {
+   "file": "nlos_tx1.zip",
+   "bytes": 220565279,
+   "sha256": "ebea8d426348505786a2260cdb3a4aa0e8cc770299b93b0dc91358ef4047308c"
+  },
+  "motions": {
+   "file": "motions.zip",
+   "bytes": 194333,
+   "sha256": "d2f48ebdb3ba19a961040f86206eae4791ef6774b7fe6efacdaa6e504b1f950d"
+  },
+  "people": {
+   "file": "people.zip",
+   "bytes": 19468391,
+   "sha256": "fdd7cb9b2c5c242b481d71fdc95adac6fa43828700629c06da515aa8324926f8"
+  }
+ }
+}

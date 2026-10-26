@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "radiosight-sim"
+version = "0.1.0"
+description = "Generate 28 GHz receive-power data from RadioSight's measured radio twins, with pedestrians and controllable agents."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Lihao Zhang" }, { name = "Paul Kudyba" }, { name = "Zhenlin An" }, { name = "Haijian Sun" }]
+dependencies = [
+  "torch>=2.0",
+  "gsplat>=1.4",
+  "numpy",
+  "scipy",
+  "pillow",
+  "pyyaml",
+  "matplotlib",
+  "imageio[ffmpeg]",
+]
+
+[project.scripts]
+radiosight-sim = "radiosight_sim.cli:main"
+
+[tool.setuptools]
+packages = ["radiosight_sim"]
+
+[tool.setuptools.package-data]
+radiosight_sim = ["assets.json"]

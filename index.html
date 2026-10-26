@@ -1,385 +1,152 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RadioSight: Predictive mmWave XR Network Optimization from Dynamic Neural Radio Fields</title>
-    <meta name="description"
-        content="RadioSight: Predictive mmWave XR Network Optimization from Dynamic Neural Radio Fields (ACM MobiCom 2026). Edge-executable predictive beamforming and real-time ray tracing.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=2.2">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#101824" media="(prefers-color-scheme: dark)">
+  <title>RadioSight · RadioVerum</title>
+  <meta name="description" content="RadioSight (ACM MobiCom '26): a measured 28 GHz radio twin and a simulator to generate data from it, with recorded head motion and people who block the signal. Part of RadioVerum.">
+  <link rel="icon" type="image/svg+xml" href="assets/brand/radioverum-icon.svg">
+  <link rel="stylesheet" href="style.css?v=6">
+  <script src="site.js?v=3" defer></script>
 </head>
-
 <body>
-    <!-- Ambient Lighting Backgrounds & Grid -->
-    <div class="bg-decorations" aria-hidden="true">
-        <div class="glow-orb-top"></div>
-        <div class="glow-orb-middle"></div>
-        <div class="glow-orb-bottom"></div>
-        <div class="grid-overlay"></div>
+
+<nav class="top" aria-label="Main navigation">
+  <div class="wrap">
+    <a class="brand" href="https://radioverum.com/" aria-label="RadioVerum">
+      <picture>
+        <source srcset="assets/brand/radioverum-horizontal-dark.svg" media="(prefers-color-scheme: dark)">
+        <img src="assets/brand/radioverum-horizontal.svg" alt="RadioVerum" width="1977" height="372">
+      </picture>
+    </a>
+    <span class="prod">RadioSight</span>
+    <span class="sp"></span>
+    <div class="links">
+      <a href="#features">Features</a>
+      <a href="#previews">Previews</a>
+      <a href="#start">Get started</a>
+      <a href="#cite">Cite</a>
     </div>
+    <a class="btn" href="https://github.com/Pervasive-Intelligence-Lab/radiosight">GitHub</a>
+  </div>
+</nav>
 
-    <!-- Floating Quick Navigation Bar -->
-    <nav class="navbar" aria-label="Main Navigation">
-        <div class="nav-container">
-            <a href="#" class="nav-brand">
-                <span class="nav-brand-dot"></span>
-                <span>RadioSight</span>
-            </a>
-            <div class="nav-links">
-                <a href="#abstract" class="nav-link">Abstract</a>
-                <a href="#dataset-code" class="nav-link">Dataset</a>
-                <a href="#video-demos" class="nav-link">Video</a>
-                <a href="#bibtex" class="nav-link">BibTeX</a>
-                <a href="https://github.com/Pervasive-Intelligence-Lab/radiosight" target="_blank" rel="noopener"
-                    class="nav-github-btn">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-                    </svg>
-                    <span>GitHub</span>
-                </a>
-            </div>
-        </div>
-    </nav>
+<header class="hero">
+  <div class="wrap">
+    <a class="powered" href="https://radioverum.com/"><span>Powered by</span><img src="assets/brand/radioverum-icon.svg" alt="" width="18" height="18"><b>RadioVerum</b></a>
+    <div class="kicker">ACM MobiCom ’26</div>
+    <h1>RadioSight</h1>
+    <p class="ptitle">Predictive mmWave XR Network Optimization from <span>Dynamic Neural Radio Fields</span></p>
+    <p class="authors">
+      <span>Lihao Zhang</span><span>Paul Kudyba</span><a href="https://anplus.github.io/">Zhenlin An</a><a href="https://sunlab.uga.edu/">Haijian Sun</a>
+    </p>
+    <p class="affil">University of Georgia</p>
+    <figure class="fig teaser">
+      <img src="assets/fig1-overview.jpg" alt="RadioSight overview. Left: the physical world, with an access point, an XR user whose predicted path is drawn as a dashed arrow, and a person walking past. Right: the neural radio field, where the system finds a reflected path to the user and switches to it." width="2000" height="647">
+      <figcaption>RadioSight keeps a radio twin of the room up to date while people move, and picks each user's beam before the link breaks.</figcaption>
+    </figure>
+    <p class="lead">Walk an XR headset through a room we measured at 28 GHz, add people who block the signal, and get what the headset would see: its camera view, the spatial spectrum and the power of every receive beam.</p>
+    <p class="cta">
+      <a class="btn primary" href="#start">Get started</a>
+      <a class="btn" href="https://doi.org/10.1145/3795866.3844465">Paper (ACM)</a>
+      <a class="btn" href="https://arxiv.org/abs/2608.29504">arXiv</a>
+    </p>
+    <aside class="notice" aria-label="About this release">
+      <div class="lab">This release</div>
+      <p class="big">One measured twin, ready to query.</p>
+      <p>RadioSight is part of <a href="https://radioverum.com/">RadioVerum</a>. More rooms, hardware and tools join the RadioVerum system in upcoming versions.</p>
+    </aside>
+  </div>
+</header>
 
-    <!-- Hero Section -->
-    <header class="hero">
-        <div class="container">
-            <!-- Conference Badge -->
-            <div class="badge-wrapper fade-in">
-                <a href="https://www.sigmobile.org/mobicom/2026/" target="_blank" rel="noopener"
-                    class="conference-badge">
-                    <div class="badge-pulse-container">
-                        <span class="pulse-ring"></span>
-                        <span class="pulse-dot"></span>
-                    </div>
-                    <span class="badge-conf-name">ACM MobiCom 2026</span>
-                    <span class="badge-status">Accepted</span>
-                </a>
-            </div>
+<section id="features" class="band alt">
+  <div class="wrap">
+    <div class="shd">
+      <div><div class="num">01 · Features</div><h2>A measured room <span>you can query.</span></h2></div>
+      <p>Put headsets and people into a room we measured at 28 GHz, and get data in the same shape as our beam scans.</p>
+    </div>
+    <div class="feats3">
+      <div class="card"><div class="bd"><div class="ic">01</div><h3>Any head pose</h3><p class="d">The camera view, the 28 GHz spatial spectrum and the power of all 55 receive beams, from anywhere in the room.</p></div></div>
+      <div class="card"><div class="bd"><div class="ic">02</div><h3>Recorded motion</h3><p class="d">Replay the walk we took while measuring the room, or five recorded XR activities: walking, gaming, interacting, navigating.</p></div></div>
+      <div class="card"><div class="bd"><div class="ic">03</div><h3>People who block</h3><p class="d">Animated people walk planned routes around the furniture, or go where you send them, and shadow the signal.</p></div></div>
+      <div class="card"><div class="bd"><div class="ic">04</div><h3>Several XR users</h3><p class="d">Each headset sees the others: who is in view, where, and how much of them is visible.</p></div></div>
+      <div class="card"><div class="bd"><div class="ic">05</div><h3>Your own agents</h3><p class="d">Drive every headset and person from Python, step by step, and react to what they measured.</p></div></div>
+      <div class="card"><div class="bd"><div class="ic">06</div><h3>Data in one folder</h3><p class="d">Beam scans, spectra, camera images, arrival directions, line of sight and the base-station beam, plus a video of the run.</p></div></div>
+    </div>
+  </div>
+</section>
 
-            <!-- Title -->
-            <h1 class="title fade-in">RadioSight</h1>
+<section id="previews" class="band">
+  <div class="wrap">
+    <div class="shd">
+      <div><div class="num">02 · Previews</div><h2>Recorded motion, <span>people in the way.</span></h2></div>
+      <p>Each clip is generated, not filmed: floor map · what the headset sees · the 28 GHz spectrum it receives. Brighter means stronger.</p>
+    </div>
+    <h3 class="group">Recorded head motion</h3>
+    <div class="clips">
+      <figure class="clip"><video src="assets/previews/walk.mp4" poster="assets/previews/walk.jpg" autoplay muted loop playsinline preload="metadata"></video><figcaption><b>Measurement walk</b>The walk we took while measuring the room.</figcaption></figure>
+      <figure class="clip"><video src="assets/previews/walk_around.mp4" poster="assets/previews/walk_around.jpg" autoplay muted loop playsinline preload="metadata"></video><figcaption><b>Walking</b>A recorded XR activity, replayed in this room.</figcaption></figure>
+      <figure class="clip"><video src="assets/previews/gaming_person.mp4" poster="assets/previews/gaming_person.jpg" autoplay muted loop playsinline preload="metadata"></video><figcaption><b>Gaming</b>Quick head turns while someone walks by.</figcaption></figure>
+    </div>
+    <h3 class="group">People who block</h3>
+    <div class="clips">
+      <figure class="clip"><video src="assets/previews/walk_person.mp4" poster="assets/previews/walk_person.jpg" autoplay muted loop playsinline preload="metadata"></video><figcaption><b>Someone walking past</b>A person walks between the headset, the base station and the tripod.</figcaption></figure>
+      <figure class="clip"><video src="assets/previews/standing_crossing.mp4" poster="assets/previews/standing_crossing.jpg" autoplay muted loop playsinline preload="metadata"></video><figcaption><b>Crossing the line of sight</b>The headset stands still; a person keeps walking through its beam.</figcaption></figure>
+      <figure class="clip"><video src="assets/previews/two_users.mp4" poster="assets/previews/two_users.jpg" autoplay muted loop playsinline preload="metadata"></video><figcaption><b>Two XR users</b>Each headset sees, and is blocked by, the other people.</figcaption></figure>
+    </div>
+  </div>
+</section>
 
-            <!-- Subtitle -->
-            <p class="subtitle fade-in">
-                Predictive mmWave XR Network Optimization from <span class="highlight-text">Dynamic Neural Radio
-                    Fields</span>
-            </p>
+<section id="start" class="band alt">
+  <div class="wrap">
+    <div class="shd">
+      <div><div class="num">03 · Get started</div><h2>A few commands <span>to your first run.</span></h2></div>
+      <p>Linux with an NVIDIA GPU. Every run also writes a short page with its video and how to load the data.</p>
+    </div>
+<pre class="code">pip install torch==2.4.1 --index-url https://download.pytorch.org/whl/cu124
+pip install gsplat==1.5.3 --extra-index-url https://docs.gsplat.studio/whl/pt24cu124
+git clone https://github.com/Pervasive-Intelligence-Lab/radiosight.git && cd radiosight && pip install -e .
+radiosight-sim download all --dest twins
+radiosight-sim run scenarios/nlos_tx1_recorded_walk_pedestrian.yaml --out runs/demo</pre>
+    <p class="cta"><a class="btn primary" href="https://github.com/Pervasive-Intelligence-Lab/radiosight#readme">Scenarios and Python API</a></p>
+  </div>
+</section>
 
-            <!-- Authors List -->
-            <div class="authors-card fade-in">
-                <div class="authors-list">
-                    <span class="author-chip">Lihao Zhang</span>
-                    <span class="author-sep">·</span>
-                    <span class="author-chip">Paul Kudyba</span>
-                    <span class="author-sep">·</span>
-                    <a href="https://anplus.github.io/" target="_blank" rel="noopener" class="author-chip has-link">
-                        <span>Zhenlin An</span>
-                        <svg class="author-link-icon" width="12" height="12" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                            <polyline points="15 3 21 3 21 9"></polyline>
-                            <line x1="10" y1="14" x2="21" y2="3"></line>
-                        </svg>
-                    </a>
-                    <span class="author-sep">·</span>
-                    <a href="https://sunlab.uga.edu/" target="_blank" rel="noopener" class="author-chip has-link">
-                        <span>Haijian Sun</span>
-                        <svg class="author-link-icon" width="12" height="12" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                            <polyline points="15 3 21 3 21 9"></polyline>
-                            <line x1="10" y1="14" x2="21" y2="3"></line>
-                        </svg>
-                    </a>
-                </div>
-            </div>
+<section id="cite" class="band alt">
+  <div class="wrap">
+    <div class="shd">
+      <div><div class="num">04 · Cite</div><h2>Using the twin? <span>Please cite the paper.</span></h2></div>
+      <p>Lihao Zhang, Paul Kudyba, Zhenlin An, and Haijian Sun. ACM MobiCom 2026, Austin, TX, USA.</p>
+    </div>
+    <div class="bib">
+      <div class="bibbar"><span>BibTeX</span><button type="button" class="btn copy" id="copy-bib">Copy</button></div>
+<pre id="bibtex">@inproceedings{zhang2026radiosight,
+  title     = {RadioSight: Predictive mmWave XR Network Optimization from Dynamic Neural Radio Fields},
+  author    = {Zhang, Lihao and Kudyba, Paul and An, Zhenlin and Sun, Haijian},
+  booktitle = {Proceedings of the 32nd Annual International Conference on Mobile Computing and Networking (MobiCom '26)},
+  year      = {2026},
+  address   = {Austin, TX, USA},
+  publisher = {ACM},
+  doi       = {10.1145/3795866.3844465}
+}</pre>
+    </div>
+  </div>
+</section>
 
-            <!-- Affiliation -->
-            <div class="affiliation fade-in">
-                <svg class="affiliation-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-                    <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-                </svg>
-                <span>University of Georgia</span>
-            </div>
+<footer>
+  <div class="wrap">
+    <span class="part"><img src="assets/brand/radioverum-icon.svg" alt="" width="22" height="22">Powered by RadioVerum</span>
+    <span class="fl">
+      <a href="https://radioverum.com/">radioverum.com</a>
+      <a href="https://anplus.github.io/">Pervasive Intelligence Lab</a>
+      <a href="https://www.uga.edu/">University of Georgia</a>
+      <a href="https://github.com/Pervasive-Intelligence-Lab/radiosight">GitHub</a>
+    </span>
+  </div>
+  <div class="wrap hw">Measurement platform: Project Aria glasses, a TMYTEK 28 GHz phased-array receiver and USRP software radios running GNU Radio. Hardware details and platform software on request: <a href="mailto:contact@radioverum.com">contact@radioverum.com</a></div>
+</footer>
 
-            <!-- Links / Buttons Row -->
-            <div class="links-grid fade-in">
-                <a href="https://arxiv.org/abs/2608.29504" target="_blank" rel="noopener"
-                    class="btn btn-primary-glass">
-                    <span class="btn-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                            <polyline points="14 2 14 8 20 8"></polyline>
-                            <line x1="16" y1="13" x2="8" y2="13"></line>
-                            <line x1="16" y1="17" x2="8" y2="17"></line>
-                            <polyline points="10 9 9 9 8 9"></polyline>
-                        </svg>
-                    </span>
-                    <span>Paper (arXiv)</span>
-                </a>
-                <a href="https://github.com/Pervasive-Intelligence-Lab/radiosight" target="_blank" rel="noopener"
-                    class="btn btn-secondary-glass">
-                    <span class="btn-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-                        </svg>
-                    </span>
-                    <span>Code &amp; Dataset</span>
-                </a>
-                <a href="#video-demos" class="btn btn-secondary-glass">
-                    <span class="btn-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polygon points="10 8 16 12 10 16 10 8"></polygon>
-                        </svg>
-                    </span>
-                    <span>Video Demos</span>
-                </a>
-                <a href="#bibtex" class="btn btn-secondary-glass">
-                    <span class="btn-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="16 18 22 12 16 6"></polyline>
-                            <polyline points="8 6 2 12 8 18"></polyline>
-                        </svg>
-                    </span>
-                    <span>BibTeX</span>
-                </a>
-            </div>
-
-            <!-- Highlights / Key Metrics Strip -->
-            <div class="stats-strip fade-in">
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-val">2.0×</div>
-                        <div class="stat-lbl">Median Throughput Gain Under Occlusion</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-val">47%</div>
-                        <div class="stat-lbl">Reduction in Beam-Search Error</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-val">28 GHz</div>
-                        <div class="stat-lbl">Commercial Phased-Array Validation</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <main>
-        <!-- Teaser Section -->
-        <section class="section teaser-section">
-            <div class="container">
-                <div class="figure-container fade-in">
-                    <div class="teaser-img-wrapper">
-                        <img src="assets/teaser.png" alt="RadioSight System Overview" class="teaser-img">
-                    </div>
-                    <p class="caption">
-                        <strong>Figure 1: System Overview of RadioSight.</strong> (Left) Physical World scenario
-                        depicting dynamic user movement and severe human blockage. (Right) Dynamic Neural Radio Field
-                        discovering optimal NLoS reflection paths for zero-downtime proactive beam switching.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Abstract Section -->
-        <section id="abstract" class="section abstract-section">
-            <div class="container">
-                <div class="section-header fade-in">
-                    <h2 class="section-title">Abstract</h2>
-                </div>
-                <div class="abstract-card fade-in">
-                    <p>
-                        Next-generation extended reality (XR) networks rely on mmWave communication to deliver
-                        multi-gigabit throughput. However, these highly directional links remain fundamentally fragile
-                        to user mobility and environmental blockages, causing frequent outages under traditional
-                        reactive beam management. While emerging neural radio fields can explicitly model and predict
-                        these propagation paths, prior work remains confined to passive, offline channel reconstruction.
-                    </p>
-                    <p>
-                        To overcome this gap, we introduce <strong>RadioSight</strong>: a real-time, multi-modal radio
-                        field system that acts as a predictive mmWave optimization engine for proactive Multi-User MIMO
-                        (MU-MIMO) beamforming. RadioSight introduces bidirectional beam tracing and real-time semantic
-                        object synchronization to anticipate short-term RF geometry changes without full model
-                        retraining. This motion-aware design transforms the radio field into an actionable, closed-loop
-                        signal for reliable beam decisions under rapid head movement and occlusions.
-                    </p>
-                    <p>
-                        Implemented as an edge-executable pipeline for commercial 28 GHz arrays, RadioSight updates
-                        scene splats in real time and produces sub-millisecond beam predictions without exhaustive
-                        codebook sweeps. Extensive experiments demonstrate RadioSight reduces beam-search error by up to
-                        <strong>47%</strong>, improves median throughput by <strong>2x</strong>, and enhances link
-                        stability. Our results offer the first demonstration that radio field representations can
-                        directly enable predictive, end-to-end mmWave network optimization.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Dataset & Code Release Section -->
-        <section id="dataset-code" class="section dataset-section">
-            <div class="container">
-                <div class="section-header fade-in">
-                    <h2 class="section-title">Dataset &amp; Code Release</h2>
-                </div>
-                <div class="release-card fade-in">
-                    <div class="release-icon">
-                        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                            <path
-                                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
-                            </path>
-                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                            <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                        </svg>
-                    </div>
-                    <div class="release-content">
-                        <h3>Multi-Modal Neural Ray Tracing Dataset &amp; Codebase</h3>
-                        <p>
-                            We will release the complete <strong>multi-modal neural ray tracing dataset</strong>
-                            alongside our full source code, neural radio field training scripts, real-time optimization
-                            models, and evaluation benchmarks on commercial 28 GHz phased arrays.
-                        </p>
-                        <div class="release-tags">
-                            <span class="tag-chip">28 GHz mmWave</span>
-                            <span class="tag-chip">Multi-User MIMO</span>
-                            <span class="tag-chip">Dynamic Neural Radio Fields</span>
-                            <span class="tag-chip">Real-time Splats</span>
-                            <span class="tag-chip">XR Mobility Traces</span>
-                        </div>
-                        <div class="release-actions">
-                            <a href="https://github.com/Pervasive-Intelligence-Lab/radiosight" target="_blank"
-                                rel="noopener" class="btn btn-primary-glass">
-                                <span class="btn-icon">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                                        <path
-                                            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-                                    </svg>
-                                </span>
-                                <span>Access GitHub Repository</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Video Demos Section -->
-        <section id="video-demos" class="section video-section">
-            <div class="container">
-                <div class="section-header fade-in">
-                    <h2 class="section-title">Video Demos</h2>
-                </div>
-                <div class="video-frame-container fade-in">
-                    <div class="video-player-wrapper">
-                        <iframe src="https://www.youtube.com/embed/BTbLFOYiX8E?rel=0" title="RadioSight Demo Video"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- BibTeX Section -->
-        <section id="bibtex" class="section bibtex-section">
-            <div class="container">
-                <div class="section-header fade-in">
-                    <h2 class="section-title">BibTeX</h2>
-                </div>
-                <div class="bibtex-wrapper fade-in">
-                    <div class="bibtex-container">
-                        <div class="bibtex-header">
-                            <span class="code-lang-tag">BibTeX Citation</span>
-                            <button class="copy-btn" id="copy-btn" onclick="copyBib()"
-                                aria-label="Copy BibTeX citation">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                                </svg>
-                                <span id="copy-btn-text">Copy</span>
-                            </button>
-                        </div>
-                        <pre id="bibtex-text"><code><span class="bib-type">@inproceedings</span>{<span class="bib-key">zhang2026radiosight</span>,
-  <span class="bib-field">title</span>={<span class="bib-val">RadioSight: Predictive mmWave XR Network Optimization from Dynamic Neural Radio Fields</span>},
-  <span class="bib-field">author</span>={<span class="bib-val">Lihao Zhang and Paul Kudyba and Zhenlin An and Haijian Sun</span>},
-  <span class="bib-field">booktitle</span>={<span class="bib-val">Proceedings of the 32th Annual International Conference on Mobile Computing and Networking</span>},
-  <span class="bib-field">series</span>={<span class="bib-val">MobiCom '26</span>},
-  <span class="bib-field">year</span>={<span class="bib-val">2026</span>},
-  <span class="bib-field">publisher</span>={<span class="bib-val">ACM</span>}
-}</code></pre>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 RadioSight Project Team. University of Georgia.</p>
-            <div class="footer-links">
-                <a href="https://www.sigmobile.org/mobicom/2026/" target="_blank" rel="noopener" class="footer-link">ACM
-                    MobiCom 2026</a>
-                <a href="https://github.com/Pervasive-Intelligence-Lab/radiosight" target="_blank" rel="noopener"
-                    class="footer-link">GitHub</a>
-                <a href="https://anplus.github.io/" target="_blank" rel="noopener" class="footer-link">Pervasive
-                    Intelligence Lab</a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Copy Function & Animation Scripts -->
-    <script>
-        function copyBib() {
-            const rawBib = `@inproceedings{zhang2026radiosight,
-  title={RadioSight: Predictive mmWave XR Network Optimization from Dynamic Neural Radio Fields},
-  author={Lihao Zhang and Paul Kudyba and Zhenlin An and Haijian Sun},
-  booktitle={Proceedings of the 32th Annual International Conference on Mobile Computing and Networking},
-  series={MobiCom '26},
-  year={2026},
-  publisher={ACM}
-}`;
-            navigator.clipboard.writeText(rawBib).then(() => {
-                const btn = document.getElementById('copy-btn');
-                const btnText = document.getElementById('copy-btn-text');
-                btn.classList.add('copied');
-                btnText.innerText = 'Copied!';
-                setTimeout(() => {
-                    btn.classList.remove('copied');
-                    btnText.innerText = 'Copy';
-                }, 2200);
-            }).catch(err => {
-                console.error('Failed to copy text: ', err);
-            });
-        }
-
-        // Intersection Observer for smooth fade-in animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.08 });
-
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-    </script>
 </body>
-
 </html>
